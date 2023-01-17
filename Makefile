@@ -1,5 +1,8 @@
 -include .env
 
+install:
+	forge install Openzeppelin/openzeppelin-contracts foundry-rs/forge-std Openzeppelin/openzeppelin-contracts-upgradeable fx-portal/contracts ethereum-optimism/optimism/packages/contracts --no-commit
+
 test-contracts: 
 	npx hardhat test --show-stack-traces
 

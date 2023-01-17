@@ -4,7 +4,7 @@ pragma solidity ^0.8.9;
 import {IL1ERC721Bridge} from "./interfaces/IL1ERC721Bridge.sol";
 import {IL2ERC721Bridge} from "./interfaces/IL2ERC721Bridge.sol";
 import {IERC721} from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
-import {CrossDomainEnabled} from "@eth-optimism/contracts/libraries/bridge/CrossDomainEnabled.sol";
+import {CrossDomainEnabled} from "@optimism/contracts/libraries/bridge/CrossDomainEnabled.sol";
 import {Address} from "@openzeppelin/contracts/utils/Address.sol";
 import {Clone} from "../lib/Clone.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
@@ -16,7 +16,7 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 contract L1Bridge is IL1ERC721Bridge, CrossDomainEnabled, IERC721Receiver, Clone {
     address public l2TokenBridge;
     address owner;
-    // L1 token address => L2 token address
+
     mapping(address => address) public tokenMapping;
     bytes32 public templateCodeHash;
 
@@ -36,12 +36,7 @@ contract L1Bridge is IL1ERC721Bridge, CrossDomainEnabled, IERC721Receiver, Clone
         owner = msg.sender;
     }
 
-    /**
-     * @dev Modifier requiring sender to be EOA.  This check could be bypassed by a malicious
-     *  contract via initcode, but it takes care of the user error we want to avoid.
-     */
     modifier onlyEOA() {
-        // Used to stop deposits from contracts (avoid accidentally lost tokens)
         require(!Address.isContract(msg.sender), "Account not EOA");
         _;
     }

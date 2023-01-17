@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity 0.8.17;
 
-import "@maticnetwork/fx-portal/contracts/lib/ERC20.sol";
+import "@fx-portal/contracts/lib/ERC20.sol";
 
 import "../interfaces/IERC677Receiver.sol";
 

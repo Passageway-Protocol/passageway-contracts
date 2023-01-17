@@ -7,7 +7,7 @@ import {IL2StandardERC721} from "./interfaces/IL2StandardERC721.sol";
 import {Clone} from "../lib/Clone.sol";
 
 import {ERC165Checker} from "@openzeppelin/contracts/utils/introspection/ERC165Checker.sol";
-import {CrossDomainEnabled} from "@eth-optimism/contracts/libraries/bridge/CrossDomainEnabled.sol";
+import {CrossDomainEnabled} from "@optimism/contracts/libraries/bridge/CrossDomainEnabled.sol";
 import {IERC721Receiver} from "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
 
 /**

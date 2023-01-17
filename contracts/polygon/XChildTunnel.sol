@@ -1,10 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import {FxBaseChildTunnel} from "@maticnetwork/fx-portal/contracts/tunnel/FxBaseChildTunnel.sol";
-import {IFxERC20} from "@maticnetwork/fx-portal/contracts/tokens/IFxERC20.sol";
+import {FxBaseChildTunnel} from "@fx-portal/contracts/tunnel/FxBaseChildTunnel.sol";
+import {IFxERC20} from "@fx-portal/contracts/tokens/IFxERC20.sol";
 import {Clone} from "./lib/Clone.sol";
-import "hardhat/console.sol";
 
 /**
  * @title XChildTunnel
@@ -108,7 +107,7 @@ contract XChildTunnel is FxBaseChildTunnel, Clone {
         address rootToken = childTokenContract.connectedToken();
         require(
             childToken != address(0x0) && rootToken != address(0x0) && childToken == rootToChildToken[rootToken],
-            "FxERC20ChildTunnel: NO_MAPPED_TOKEN"
+            "XERC20ChildTunnel: NO_MAPPED_TOKEN"
         );
 
         childTokenContract.burn(msg.sender, amount);

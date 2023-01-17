@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import {ERC20} from "@maticnetwork/fx-portal/contracts/lib/ERC20.sol";
-import {FxBaseRootTunnel} from "@maticnetwork/fx-portal/contracts/tunnel/FxBaseRootTunnel.sol";
+import {ERC20} from "@fx-portal/contracts/lib/ERC20.sol";
+import {FxBaseRootTunnel} from "@fx-portal/contracts/tunnel/FxBaseRootTunnel.sol";
 import {SafeERC20, IERC20} from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import {Clone} from "./lib/Clone.sol";
 
@@ -72,7 +72,7 @@ contract XRootTunnel is FxBaseRootTunnel, Clone {
     function _processMessageFromChild(bytes memory data) internal override {
         (address rootToken, address childToken, address to, uint256 amount) =
             abi.decode(data, (address, address, address, uint256));
-        require(rootToChildTokens[rootToken] == childToken, "FxERC20RootTunnel: INVALID_MAPPING_ON_EXIT");
+        require(rootToChildTokens[rootToken] == childToken, "XERC20RootTunnel: INVALID_MAPPING_ON_EXIT");
 
         IERC20(rootToken).safeTransfer(to, amount);
         emit FxWithdrawERC20(rootToken, childToken, to, amount);
