@@ -75,6 +75,7 @@ contract L1Bridge is IL1ERC721Bridge, CrossDomainEnabled, IERC721Receiver, Clone
         uint32 _l2Gas,
         bytes calldata /*_data*/
     ) internal {
+
         ERC721 token = ERC721(_l1Token);
         string memory name = token.name();
         string memory symbol = token.symbol();
@@ -92,7 +93,6 @@ contract L1Bridge is IL1ERC721Bridge, CrossDomainEnabled, IERC721Receiver, Clone
 
         bytes memory message =
             abi.encodeWithSelector(IL2ERC721Bridge.finalizeDeposit.selector, _l1Token, _from, _to, _tokenId, tokenData);
-
         // slither-disable-next-line reentrancy-events, reentrancy-benign
         sendCrossDomainMessage(l2TokenBridge, _l2Gas, message);
 

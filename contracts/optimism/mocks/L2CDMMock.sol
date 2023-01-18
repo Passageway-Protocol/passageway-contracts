@@ -4,6 +4,7 @@ pragma solidity ^0.8.9;
 contract L2CDMMock {
     address public l1TokenBridge;
 
+
     event MessageSent(address indexed _target, bytes _message, uint32 _gasLimit);
 
     constructor(address _l1TokenBridge) {

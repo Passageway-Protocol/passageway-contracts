@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 
 import {FxBaseChildTunnel} from "@fx-portal/contracts/tunnel/FxBaseChildTunnel.sol";
 import {IFxERC20} from "@fx-portal/contracts/tokens/IFxERC20.sol";
-import {Clone} from "./lib/Clone.sol";
+import {Clone} from "../lib/Clone.sol";
 
 /**
  * @title XChildTunnel
