@@ -1,11 +1,11 @@
 -include .env
 
 install: clean
-	forge install Openzeppelin/openzeppelin-contracts foundry-rs/forge-std Openzeppelin/openzeppelin-contracts-upgradeable fx-portal/contracts ethereum-optimism/optimism/packages/contracts --no-commit
+	forge install Openzeppelin/openzeppelin-contracts foundry-rs/forge-std Openzeppelin/openzeppelin-contracts-upgradeable fx-portal/contracts optimism=ethereum-optimism/optimism/packages/contracts --no-commit
 clean:
 	remove :; rm -rf .gitmodules && rm -rf .git/modules/* && rm -rf lib && touch .gitmodules && git add . && git commit -m "modules"
 test-contracts: 
-	npx hardhat test --show-stack-traces
+	forge test -vvvv
 
 deploy-base:
 	npx hardhat run --network ${NETWORK_OPTIMISM_GOERLI} scripts/deploy-base.ts
