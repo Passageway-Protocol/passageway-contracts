@@ -7,6 +7,9 @@ clean:
 test-contracts: 
 	forge test -vvvv
 
+generate-docs:
+	forge doc --serve --port 4000
+
 deploy-base:
 	npx hardhat run --network ${NETWORK_OPTIMISM_GOERLI} scripts/deploy-base.ts
 
