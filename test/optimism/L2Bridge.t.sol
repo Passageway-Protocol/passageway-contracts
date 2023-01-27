@@ -1,15 +1,14 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.13;
 
-import "forge-std/Test.sol";
-import "forge-std/console.sol";
+import {Test} from "forge-std/Test.sol";
+import {console} from "forge-std/console.sol";
 import {L2StandardERC721} from "../../contracts/optimism/tokens/L2StandardERC721.sol";
 import {L1CDMMock} from "../../contracts/optimism/mocks/L1CDMMock.sol";
 import {L2CDMMock} from "../../contracts/optimism/mocks/L2CDMMock.sol";
 import {NFT} from "../../contracts/optimism/tokens/ERC721.sol";
 import {L1Bridge} from "../../contracts/optimism/L1Bridge.sol";
 import {L2Bridge} from "../../contracts/optimism/L2Bridge.sol";
-
 
 contract L2BridgeTest is Test {
     address admin;
@@ -21,11 +20,12 @@ contract L2BridgeTest is Test {
     L2StandardERC721 template;
     L1Bridge l1Bridge;
     L2Bridge l2Bridge;
+
     function setUp() public {
-        admin = vm.envAddress("LOCAL_ADMIN");
+        admin = makeAddr("admin");
         vm.startPrank(admin);
         l1Messenger = new L1CDMMock();
-        
+
         l2Standard721 = new L2StandardERC721();
         nft = new NFT("Cool NFT's", "CNFT");
         template = new L2StandardERC721();
