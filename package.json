@@ -1,0 +1,13 @@
+{
+  "name": "passageway-contracts",
+  "version": "1.0.0",
+  "description": "Multi chain bridge support for ERC721/1155/677",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@chainlink/contracts-ccip": "^0.7.6"
+  }
+}
