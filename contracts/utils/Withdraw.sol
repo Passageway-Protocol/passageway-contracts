@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.17;
 
-import {OwnerIsCreator} from "@chainlink/contracts-ccip/src/v0.8/shared/access/OwnerIsCreator.sol";
-import {IERC20} from "@chainlink/contracts-ccip/src/v0.8/vendor/openzeppelin-solidity/v4.8.0/token/ERC20/IERC20.sol";
+import {OwnerIsCreator} from "@ccip/contracts-ccip/src/v0.8/shared/access/OwnerIsCreator.sol";
+import {IERC20} from "@ccip/contracts-ccip/src/v0.8/vendor/openzeppelin-solidity/v4.8.0/token/ERC20/IERC20.sol";
 
 contract Withdraw is OwnerIsCreator {
     error FailedToWithdrawEth(address owner, address target, uint256 value);

@@ -2,10 +2,10 @@
 pragma solidity ^0.8.13;
 
 import {Utils} from "../../contracts/utils/Utils.sol";
-import {MessageReceiver} from "../../contracts/ccip/MessageSender.sol";
+import {MessageReceiver} from "../../contracts/ccip/MessageReceiver.sol";
 
 contract DeployMessageReceiverScript is Utils {
-    MessageSender public sender;
+    MessageReceiver public receiver;
     uint256 deployerPrivateKey;
 
     function run() public {
@@ -14,7 +14,8 @@ contract DeployMessageReceiverScript is Utils {
         } else {
             deployerPrivateKey = vm.envUint("PRIVATE_KEY");
         }
-        vm.broadcast();
-        sender = new MessageReceiver(getValue("routerAddress"));
+        vm.startBroadcast(deployerPrivateKey);
+        receiver = new MessageReceiver(getValue("routerAddress"));
+        updateDeployment(address(receiver), "currentReceiverAddress");
     }
 }

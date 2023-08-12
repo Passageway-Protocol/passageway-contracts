@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.17;
 
-import {CCIPReceiver} from "@chainlink/contracts-ccip/src/v0.8/ccip/applications/CCIPReceiver.sol";
-import {Client} from "@chainlink/contracts-ccip/src/v0.8/ccip/libraries/Client.sol";
+import {CCIPReceiver} from "@ccip/contracts-ccip/src/v0.8/ccip/applications/CCIPReceiver.sol";
+import {Client} from "@ccip/contracts-ccip/src/v0.8/ccip/libraries/Client.sol";
 import {Withdraw} from "../utils/Withdraw.sol";
 
 contract MessageReceiver is CCIPReceiver, Withdraw {

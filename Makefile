@@ -45,3 +45,9 @@ withdraw:
 
 test-nft:
 	npx hardhat run --network ${NETWORK_GOERLI} scripts/tokens/nft.ts
+
+deploy-ccip-sender:
+	forge script script/ccip/Deploy.MessageSender.s.sol:DeployMessageSenderScript --rpc-url ${RPC_URL} --etherscan-api-key ${EXPLORER_KEY} --broadcast --verify -vvvv --ffi
+
+deploy-ccip-receiver:
+	forge script script/ccip/Deploy.MessageReceiver.s.sol:DeployMessageReceiverScript --rpc-url ${RPC_URL} --etherscan-api-key ${EXPLORER_KEY} --broadcast --verify -vvvv --ffi

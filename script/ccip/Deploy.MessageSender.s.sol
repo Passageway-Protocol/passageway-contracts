@@ -14,7 +14,8 @@ contract DeployMessageSenderScript is Utils {
         } else {
             deployerPrivateKey = vm.envUint("PRIVATE_KEY");
         }
-        vm.broadcast();
+        vm.startBroadcast(deployerPrivateKey);
         sender = new MessageSender(getValue("routerAddress"), getValue("linkAddress"));
+        updateDeployment(address(sender), "currentSenderAddress");
     }
 }
