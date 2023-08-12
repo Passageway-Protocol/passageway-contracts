@@ -1,7 +1,7 @@
 -include .env
 
 install:
-	forge install Openzeppelin/openzeppelin-contracts foundry-rs/forge-std Openzeppelin/openzeppelin-contracts-upgradeable fx-portal/contracts ethereum-optimism/optimism@master
+	forge install Openzeppelin/openzeppelin-contracts foundry-rs/forge-std Openzeppelin/openzeppelin-contracts-upgradeable fx-portal/contracts ethereum-optimism/optimism@master smartcontractkit/chainlink
 clean:
 	remove :; rm -rf .gitmodules && rm -rf .git/modules/* && rm -rf lib && touch .gitmodules && git add . && git commit -m "modules"
 test-contracts: 

@@ -1,7 +1,19 @@
 [profile.default]
 src = 'contracts'
 out = 'out'
-libs = ['lib']
-remappings = ['@openzeppelin=lib/openzeppelin-contracts', '@openzeppelin-upgrades=lib/openzeppelin-contracts-upgradeable', '@fx-portal=lib/contracts', '@optimism=lib/optimism/packages/contracts', 'forge-std=lib/forge-std/src']
-fs_permissions = [{ access = "read", path = "./"}]
-# See more config options https://github.com/foundry-rs/foundry/tree/master/config
+libs = ['lib', 'node_modules']
+remappings = [
+    '@openzeppelin=lib/openzeppelin-contracts',
+    '@openzeppelin-upgrades=lib/openzeppelin-contracts-upgradeable',
+    '@fx-portal=lib/contracts',
+    '@optimism=lib/optimism/packages/contracts',
+    'forge-std=lib/forge-std/src',
+    '@chainlink=lib/chainlink',
+    '@chainlink/contracts-ccip/=node_modules/@chainlink/contracts-ccip',
+]
+fs_permissions = [{ access = "read", path = "./" }]
+
+[rpc_endpoints]
+arbitrum = "${ARBITRUM_RPC_URL}"
+mainnet = "${MAINNET_RPC_URL}"
+sepolia = "${SEPOLIA_RPC_URL}"
